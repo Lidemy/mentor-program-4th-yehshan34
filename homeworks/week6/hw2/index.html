@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <meta charset="utf-8">
+
+  <title>報名表單</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+
+  <style>
+  	body {
+  		background: rgba(0, 0, 0, 0.3);
+  	}
+  	.wrapper {
+  		max-width:645px;
+  		background:white;
+  		margin:0 auto;
+  		box-shadow: 1.8px 2.4px 5px 0 rgba(0, 0, 0, 0.3);
+  		border-top:8px solid #fad312;
+  		margin-top:10%;
+  		padding:64px 32px;
+  	}
+  	.registerform_title{
+		margin:0;
+		font-size: 36px;
+		font-weight: bold;
+  	}
+  	.register_desc{
+  		margin-top: 32px;
+  		font-size:14px;
+  	}
+ 	.register_must{
+ 		font-size: 16px;
+ 		color:red;
+ 		margin-top: 20px;
+ 	}
+ 	.input_block{
+		margin-top: 55px;
+ 	}
+ 	.required:after {
+		content:'*';
+		color: red;
+ 	}
+ 	.input_block_title{
+ 		font-size: 20px;
+ 	}
+ 	.input_block_desc{
+ 		font-size: 14px;
+ 		margin-top: 8px;
+ 	}
+ 	.input_block_input{
+ 		margin-top: 20px;
+ 	}
+ 	.input_block_input input{
+ 		border: 1px solid #d0d0d0;
+ 		padding:9px;
+ 		font-size: 14px;
+ 	}
+ 	.input_block_input label {
+ 		display: block;
+ 		margin-top: 12px;
+ 	}
+ 	.registerform_submit{
+  		border-radius: 3px;
+ 		background-color: #fad312;
+ 		padding: 14px 28px;
+ 		color:black;
+ 		border:none;
+ 		margin-top: 15px;
+ 	}
+  	footer {
+		margin-top:100px;
+	}
+	.footer__bottom{
+		background:#000000;
+		text-align: center;
+		padding:24px 12px;
+		color:#999999;
+		font-size: 13px;
+	}
+  	</style>
+</head>
+
+
+<body>
+	<div class="wrapper">
+		<div class="registerform">
+			<h1 class='registerform_title'>新拖延運動表單</h1>
+			<div class="register_desc">
+				活動日期：2020/12/10 ~ 2020/12/11 <br><br>
+				活動地點：台北市大安區新生南路二段1號
+			</div>
+			<p class='register_must'> 
+				*必填
+			</p>
+			<div class="input_block">
+				<div class="input_block_title required">
+					暱稱
+				</div>
+				<div class="input_block_input">
+					<input name='nickname' type="text" />
+				</div>
+			</div>
+			<div class="input_block">
+				<div class="input_block_title required">
+					電子郵件
+				</div>
+				<div class="input_block_input">
+					<input name='email' type="text" />
+				</div>
+			</div>
+			<div class="input_block">
+				<div class="input_block_title required">
+					手機號碼
+				</div>
+				<div class="input_block_input">
+					<input name='phonenumber' type="text" />
+				</div>
+			</div>
+			<div class="input_block">
+				<div class="input_block_title required">
+					報名類型
+				</div>
+				<div class="input_block_input">
+					<label>
+						<input type="radio" value="1"/>
+						躺在床上用想像力實作
+					</label>
+					<label>
+						<input type="radio" value="2"/>
+						趴在地上滑手機找現成的
+					</label>
+				</div>
+			</div>
+			<div class="input_block">
+				<div class="input_block_title required">
+					怎麼知道這個活動的？
+				</div>
+				<div class="input_block_input">
+					<input name='reasoncoming' type="text" />
+				</div>
+			</div>
+			<div class="input_block">
+				<div class="input_block_title">
+					其他
+				</div>
+				<div class="input_block_desc" >
+					對活動的一些建議
+				</div>
+				<div class="input_block_input">
+					<input name='reasoncoming' type="text" />
+				</div>
+			</div>
+		</div>
+		<div>
+		<input class="registerform_submit" type="submit" value="提交"/>
+		</div>
+		<div class="register_desc">
+				請勿透過表單送出您的密碼。
+			</div>
+	</div>
+	<footer>
+			<div class="footer__bottom">
+				© 2020 © Copyright. All rights Reserved.
+			</div>
+		</footer>
+	
+</body>
+</html>
