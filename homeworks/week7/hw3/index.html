@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>TO-DO LIST</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" />
+
+
+  <style>
+    .wrapper {
+      max-width: 500px;
+      border: 10px solid black;
+      margin: 50px auto;
+      padding: 32px;
+      background: #cce5ff;
+    }
+
+    h1 {
+      margin: 10px auto;
+      font-size: 45px;
+    }
+
+    input[type=text] {
+      border: 2px solid black;
+      height: 35px;
+      width: 200px;
+    }
+
+    input[type=text] {
+      transition: width 0.4s ease-in-out;
+    }
+
+    input[type=text]:focus {
+      width: 79%;
+    }
+
+    .todo {
+      display: flex;
+      align-items: center;
+      margin-top: 20px;
+      padding: 12px;
+    }
+
+    .todo:hover {
+      background: #4da3ff;
+    }
+
+    .todo_title {
+      flex: 1;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .todo_check {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+
+    .todo.complete .todo_title {
+      text-decoration: line-through;
+    }
+
+    button {
+      width: 80px;
+      height: 40px;
+      border: 2px black solid;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      background-color: #0099cc;
+    }
+  </style>
+</head>
+
+<body>
+  <div class='wrapper'>
+    <h1>TO-DO LIST</h1>
+    <input class='todo_text' type='text' placeholder="Add Something to do here ... " />
+    <button class='btn_create'>ADD</button>
+    <div class='todos'>
+      <div class='todo'>
+        <input class='todo_check' type="checkbox" />
+        <div class="todo_title">Complete A Task</div>
+        <button class='btn_delete'>DELETE</button>
+      </div>
+      <div class='todo'>
+        <input class='todo_check' type="checkbox" />
+        <div class="todo_title">Run A Marathon</div>
+        <button class='btn_delete'>DELETE</button>
+      </div>
+      <div class='todo'>
+        <input class='todo_check' type="checkbox" />
+        <div class="todo_title">Happy Coding</div>
+        <button class='btn_delete'>DELETE</button>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    document
+      .querySelector('.btn_create')
+      .addEventListener('click', (e) => {
+        const value = document.querySelector('.todo_text').value;
+        if (!value) return
+        const div = document.createElement('div')
+        div.classList.add('todo')
+        div.innerHTML = `
+          <input class='todo_check' type="checkbox" />
+          <div class="todo_title">${escapeHtml(value)}</div>
+          <button class='btn_delete'>DELETE</button>  
+        `
+        document.querySelector('.todos').appendChild(div)
+        document.querySelector('.todo_text').value = ''
+      })
+
+    //event delegation / proxy
+    document.querySelector('.todos').addEventListener('click', (event) => {
+      const { target } = event
+      //delete todo
+      if (target.classList.contains('btn_delete')) {
+        target.parentNode.remove()
+        return
+      }
+
+      //check/uncheck todo 
+      if (target.classList.contains('todo_check')) {
+        if (target.checked) {
+          target.parentNode.classList.add('complete')
+        } else {
+          target.parentNode.classList.remove('complete')
+        }
+      }
+    })
+
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+    }
+  </script>
+
+</body>
+
+</html>
